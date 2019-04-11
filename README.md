@@ -1,9 +1,10 @@
-# Is Google Earth Engine Reproducible?
+# Are Google Earth Engine anaylses reproducible?
 
 ## Setup
 
 ```
 conda env create -n earthengine -f environment.yml
+source activate earthengine
 earthengine authenticate
 ```
 

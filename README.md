@@ -16,11 +16,18 @@ python test.py
 
 ## Roadmap
 
- * Identify file objects
- * Perform an analysis (on the EE platform)
- * Return file objects
- * Generate comparable file objects (not through EE)
+ * ~~Identify file objects~~
+ * ~~Perform an analysis (on the EE platform)~~
+ * ~~Return file objects~~
+ * Generate comparable file objects (not through EE)?
  * Reproduce analysis (un-authenticated with EE)
 
-File objects can only be returned to Google Drive (and opaque Earth Engine repository objects). See [PyDrive](https://github.com/gsuitedevs/PyDrive)
+## Notes
 
+### Available datasets
+
+https://developers.google.com/earth-engine/datasets/
+
+### Further reading
+
+https://geoscripting-wur.github.io/Earth_Engine/

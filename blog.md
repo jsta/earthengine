@@ -43,3 +43,5 @@ https://www.gdal.org/drv_eeda.html
 
 https://geohackweek.github.io/raster/04-workingwithrasters/
 https://gis.stackexchange.com/a/297042/32531
+https://developers.google.com/earth-engine/datasets/
+https://geoscripting-wur.github.io/Earth_Engine/

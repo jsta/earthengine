@@ -30,6 +30,7 @@ if not Path("raw_export.tif").is_file():
     file1 = drive.CreateFile({'id':file_id})
     file1.GetContentFile('raw_export.tif')
 
+# https://scikit-image.org/docs/dev/auto_examples/edges/plot_edge_filter.html
 raw_export = skimage.io.imread('raw_export.tif')
 canny = skimage.io.imread("canny.tif")
 edge_sobel = skimage.filters.sobel(raw_export)

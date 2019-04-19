@@ -11,23 +11,10 @@ earthengine authenticate
 ## Execute
 
 ```
-python test.py
+python 00_reproducible.py
+python 01_reproducible.py
 ```
 
-## Roadmap
+## Results
 
- * ~~Identify file objects~~
- * ~~Perform an analysis (on the EE platform)~~
- * ~~Return file objects~~
- * Generate comparable file objects (not through EE)?
- * Reproduce analysis (un-authenticated with EE)
-
-## Notes
-
-### Available datasets
-
-https://developers.google.com/earth-engine/datasets/
-
-### Further reading
-
-https://geoscripting-wur.github.io/Earth_Engine/
+![](comparison.png)

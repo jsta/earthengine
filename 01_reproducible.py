@@ -38,12 +38,15 @@ fig, ax = plt.subplots(ncols=3, sharex=True, sharey=True,
                        figsize=(8, 4))
 
 ax[0].imshow(raw_export, cmap = plt.cm.gray)
-ax[1].imshow(edge_sobel, cmap = plt.cm.gray)
-ax[2].imshow(canny, cmap = plt.cm.gray)
+ax[0].set_title('Raw Landsat')
+ax[1].imshow(canny, cmap = plt.cm.gray)
+ax[1].set_title('Non-reproducible \n EE Edge Detection')
+ax[2].imshow(edge_sobel, cmap = plt.cm.gray)
+ax[2].set_title('Reproducible \n scikit-image Edge Detection')
 
 ax[0].axis('off')
 ax[1].axis('off')
 ax[2].axis('off')
 
 plt.tight_layout()
-plt.show()
+plt.savefig("comparison.png")

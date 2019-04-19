@@ -11,7 +11,7 @@ earthengine authenticate
 ## Execute
 
 ```
-python 00_reproducible.py
+python 00_non-reproducible.py
 python 01_reproducible.py
 ```
 

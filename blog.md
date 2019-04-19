@@ -25,7 +25,7 @@ $ earthengine authenticate
 
 ## Walkthrough
 
-First, we must manually initialize EE and connect `pydrive` in a python session:
+First, we must manually initialize EE and setup `pydrive` in a python session:
 
 ```
 ee.Initialize()
@@ -34,7 +34,7 @@ gauth.LocalWebserverAuth()
 drive = GoogleDrive(gauth)
 ```
 
-Then we need to identify an EE image product. We will focus on the Landsat 8 panchromatic band product and select a tile overlapping Gull Lake Michigan (path: 21, row: 31, date: 2019-01-26). You can find the path and row numbers for an arbitrary region of interest using [this tool](https://landsat.usgs.gov/landsat_acq#convertPathRow). The scenario here is that we will attempt to extract the coastline of Gull Lake using an EE workflow. Note that we save the raw Landsat scene to Google Drive clipped to a bounding box around the Gull Lake watershed using the `region` argument of `batch.Export.image.toDrive`.
+Then, we need to identify an [EE image product](https://developers.google.com/earth-engine/datasets/). We will focus on the Landsat 8 panchromatic band product and select a tile overlapping Gull Lake Michigan (path: 21, row: 31, date: 2019-01-26). You can find the path and row numbers for an arbitrary region of interest using [this tool](https://landsat.usgs.gov/landsat_acq#convertPathRow). The scenario here is that we will attempt to extract the coastline of Gull Lake using an EE workflow. Note that we save the raw Landsat scene to Google Drive clipped to a bounding box around the Gull Lake watershed using the `region` argument of `batch.Export.image.toDrive`.
 
 ```
 image = ee.Image('LANDSAT/LC08/C01/T1/LC08_021031_20190126').select('B8')
@@ -109,7 +109,5 @@ Here is a comparison of the raw data with the results of each approach:
 https://geohackweek.github.io/raster/04-workingwithrasters/
 
 https://gis.stackexchange.com/a/297042/32531
-
-https://developers.google.com/earth-engine/datasets/
 
 https://geoscripting-wur.github.io/Earth_Engine/

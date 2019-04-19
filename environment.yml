@@ -6,4 +6,5 @@ dependencies:
         - earthengine-api        
         - pydrive
         - pandas
+        - numpy
         - scikit-image        

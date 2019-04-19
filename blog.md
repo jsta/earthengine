@@ -61,28 +61,59 @@ file1 = drive.CreateFile({'id':file_id})
 file1.GetContentFile('raw_export.tif')
 ```
 
+Now, let's find the _edges_ of our scene using a non-reproducible EE workflow:
+
+```
+canny = ee.Algorithms.CannyEdgeDetector(image, 10, 1)
+canny_export = batch.Export.image.toDrive(canny, description = 'canny', 
+                                scale = 30,
+                                region=([-85.4664, 42.36926],
+                                [-85.37169, 42.36926],
+                                [-85.37169, 42.46446],
+                                [-85.4664, 42.46446],
+                                [-85.4664, 42.36926]))
+batch.Task.start(canny_export)
+
+# pull file from GDrive
+file_list = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
+file_position = np.min(np.where(
+    [file1['title'] == "canny.tif" for file1 in file_list]))
+file_id = file_list[file_position]['id']
+file1 = drive.CreateFile({'id':file_id})
+file1.GetContentFile('canny.tif')
+```
+
+Finally, let's find the _edges_ of our scene using a reproducible `scikit-image`:
+
+```
+raw_export = skimage.io.imread('raw_export.tif')
+edge_sobel = skimage.filters.sobel(raw_export)
+```
+
+Here is a comparison of the raw data with the results of each approach:
+
 ![](comparison.png)
 
-It's obnoxious that I have to go to the code editor to read the docs (argument descriptions)
-No native python docs exist bc the code editor is soley js
-The docs don't have code examples...
+The above code is included in runnable python scripts at: https://github.com/jsta/earthengine
 
-### Find path and row of landsat scene
-https://landsat.usgs.gov/landsat_acq#convertPathRow
-https://developers.google.com/earth-engine/datasets/
+## Recommendation
 
-## Recommendations
+**Use EE as a remote data source not a computation platform.**
 
-### Use EE as a remote data source not a computation platform
+## Notes about EE
 
-I was able to reproduce data fetching code from 2016 that uses legacy formatting of Landsat file names (https://github.com/acgeospatial/GoogleEarthEnginePy/blob/master/OrderData.py).
+* It's obnoxious that there seem to be no way to read the argument descriptions of EE functions without going to the online code editor. Also, the code editor docs don't have embedded examples. You need to browse a separate webpage.
 
-gdal has tools for finding and downloading from ee!
-https://www.gdal.org/drv_eeda.html
+* I was able to reproduce data fetching code from 2016 that uses legacy formatting of Landsat file names (https://github.com/acgeospatial/GoogleEarthEnginePy/blob/master/OrderData.py).
+
+* `gdal` has [tools](https://www.gdal.org/drv_eeda.html) for finding and downloading from ee!
 
 ## Further reading
 
 https://geohackweek.github.io/raster/04-workingwithrasters/
+
 https://gis.stackexchange.com/a/297042/32531
+
 https://developers.google.com/earth-engine/datasets/
+
 https://geoscripting-wur.github.io/Earth_Engine/

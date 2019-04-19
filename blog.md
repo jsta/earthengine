@@ -19,10 +19,8 @@ Before we begin let's set up our python environment and initialize EE where [pyt
 - numpy
 - scikit-image        
 
-```
-conda env create -n earthengine -f environment.yml
-source activate earthengine
-earthengine authenticate
+```shell
+$ earthengine authenticate
 ```
 
 ## Walkthrough
@@ -102,11 +100,11 @@ The above code is included in runnable python scripts at: https://github.com/jst
 
 ## Notes about EE
 
-* It's obnoxious that there seem to be no way to read the argument descriptions of EE functions without going to the online code editor. Also, the code editor docs don't have embedded examples. You need to browse a separate webpage.
+* It's obnoxious that there seems to be no way to read the argument descriptions of EE functions without going to the online code editor. Also, the code editor docs don't have embedded examples. You need to browse a separate webpage.
 
-* I was able to reproduce data fetching code from 2016 that uses legacy formatting of Landsat file names (https://github.com/acgeospatial/GoogleEarthEnginePy/blob/master/OrderData.py).
+* I was able to reproduce [EE data fetching code](https://github.com/acgeospatial/GoogleEarthEnginePy/blob/master/OrderData.py) from 2016 that uses legacy formatting of Landsat file names.
 
-* `gdal` has [tools](https://www.gdal.org/drv_eeda.html) for finding and downloading from ee!
+* `gdal` has [tools](https://www.gdal.org/drv_eeda.html) for finding and downloading from EE!
 
 ## Further reading
 

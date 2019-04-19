@@ -1,8 +1,6 @@
 
 # Are Google Earth Engine analyses reproducible?
 
-## Summary
-
 > Detailed setup files and runnable python scripts for reproducing this blog post are at: https://github.com/jsta/earthengine
 
 More and more research papers are making use of Google Earth Engine (EE) to do geocomputation with gridded data and satellite (remote sensing) output. Are these analyses reproducible? Will they be reproducible in 2-3 years? In the following blog post, I explore these questions and conclude that:
@@ -27,7 +25,7 @@ $ earthengine authenticate
 
 ## Walkthrough
 
-First, we must manually initialize EE and connect `pydrive`:
+First, we must manually initialize EE and connect `pydrive` in a python session:
 
 ```
 ee.Initialize()

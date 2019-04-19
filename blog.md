@@ -3,6 +3,8 @@
 
 ## Summary
 
+> Detailed setup files and runnable python scripts for reproducing this blog post are at: https://github.com/jsta/earthengine
+
 More and more research papers are making use of Google Earth Engine (EE) to do geocomputation with gridded data and satellite (remote sensing) output. Are these analyses reproducible? Will they be reproducible in 2-3 years? In the following blog post, I explore these questions and conclude that:
 
 * If a paper uses EE to simply pull/crop/extract data they answer is likely yes. 
@@ -91,8 +93,6 @@ edge_sobel = skimage.filters.sobel(raw_export)
 Here is a comparison of the raw data with the results of each approach:
 
 ![](comparison.png)
-
-The above code is included in runnable python scripts at: https://github.com/jsta/earthengine
 
 ## Recommendation
 

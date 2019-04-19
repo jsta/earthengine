@@ -36,12 +36,17 @@ gauth.LocalWebserverAuth()
 drive = GoogleDrive(gauth)
 ```
 
-Then we need to identify an EE image product. We will focus on the Landsat 8 panchromatic band product and select a tile overlapping Gull Lake Michigan (path: 21, row: 31, date: 2019-01-26). You can find the path and row numbers an arbitrary region of interest using [this tool](https://landsat.usgs.gov/landsat_acq#convertPathRow). The scenario here is that we will attempt to extract the coastline of Gull Lake using an EE workflow. Note that save the raw data to Google Drive clipped to a bounding box around the Gull Lake watershed using the `region` argument of `batch.Export.image.toDrive`.
+Then we need to identify an EE image product. We will focus on the Landsat 8 panchromatic band product and select a tile overlapping Gull Lake Michigan (path: 21, row: 31, date: 2019-01-26). You can find the path and row numbers for an arbitrary region of interest using [this tool](https://landsat.usgs.gov/landsat_acq#convertPathRow). The scenario here is that we will attempt to extract the coastline of Gull Lake using an EE workflow. Note that we save the raw Landsat scene to Google Drive clipped to a bounding box around the Gull Lake watershed using the `region` argument of `batch.Export.image.toDrive`.
 
 ```
 image = ee.Image('LANDSAT/LC08/C01/T1/LC08_021031_20190126').select('B8')
 raw_export = batch.Export.image.toDrive(image, description = 'raw_export', 
-                                    scale = 30, region=([-85.4664, 42.36926], [-85.37169, 42.36926], [-85.37169, 42.46446], [-85.4664, 42.46446], [-85.4664, 42.36926]))
+                                        scale = 30,
+                                        region=([-85.4664, 42.36926],
+                                        [-85.37169, 42.36926],
+                                        [-85.37169, 42.46446],
+                                        [-85.4664, 42.46446],
+                                        [-85.4664, 42.36926]))
 batch.Task.start(raw_export)
 ```
 

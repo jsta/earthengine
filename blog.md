@@ -59,7 +59,7 @@ file1 = drive.CreateFile({'id':file_id})
 file1.GetContentFile('raw_export.tif')
 ```
 
-Now, let's find the _edges_ of our scene using a non-reproducible EE workflow:
+Now, let's find the _edges_ of our scene using a non-reproducible EE (`ee.Algorithms.CannyEdgeDetector`) workflow:
 
 ```python
 canny = ee.Algorithms.CannyEdgeDetector(image, 10, 1)
@@ -81,7 +81,7 @@ file1 = drive.CreateFile({'id':file_id})
 file1.GetContentFile('canny.tif')
 ```
 
-Finally, let's find the _edges_ of our scene using a reproducible `scikit-image`:
+Finally, let's find the _edges_ of our scene using a reproducible `scikit-image` workflow:
 
 ```python
 raw_export = skimage.io.imread('raw_export.tif')
@@ -94,7 +94,7 @@ Here is a comparison of the raw data with the results of each approach:
 
 ## Recommendation
 
-**Use EE as a remote data source not a computation platform.**
+**Use EE as a remote data source not as a computation platform. Future reproducibility of EE geocomputation depends on the existence of remote EE servers.**
 
 ## Notes about EE
 

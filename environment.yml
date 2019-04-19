@@ -5,6 +5,5 @@ dependencies:
         - python=3.7.3
         - earthengine-api        
         - pydrive
-        - pandas
         - numpy
         - scikit-image        

@@ -1,8 +1,9 @@
 name: earthengine
 channels:
-        - conda-forge
+        - conda-forge        
 dependencies:
         - python=3.7.3
-        - earthengine-api
+        - earthengine-api        
         - pydrive
         - pandas
+        - scikit-image        
